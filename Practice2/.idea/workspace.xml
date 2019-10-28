@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34a45fe3-7248-4d8b-bafd-5f62326bf4ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/META-INF/Practice2.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice2/META-INF/Practice2.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/MainKt$main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/MainKt$main$ff$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice2/MainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskOne.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskOne.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +24,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Practice1" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -83,7 +77,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

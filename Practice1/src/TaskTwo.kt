@@ -193,11 +193,12 @@ fun taskTwo4()
 {
     // Ввод набора целых неотрицательных чисел
     print("Введите набор целых чисел разделенных пробелом: ")
-    val strOfNum: String? = readLine()
+    val strOfNu: String? = readLine()
 
     // Проверка на null
-    if (strOfNum != null)
+    if (strOfNu != null)
     {
+        val strOfNum = "$strOfNu "
         try
         {
             // Количество чисел удовлетворяющих условию наличия повторяющихся чисел

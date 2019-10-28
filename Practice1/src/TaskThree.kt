@@ -1,130 +1,60 @@
 // Варианты рещения третьего задания практической работы №1
 
 
-// Найдите последний символ в первом самом коротком слове в строке с четным числом символов (в строке указываются
-// только слова разделенные одним или несколькими пробелами).
-// То как должна звучать задача:
-// В строке, найдите последний символ в первом самом коротким слове с четным числом символов (в строке указываются
-// только слова разделенные одним или несколькими пробелами).
-// !!! Добавить проверку на четное число символов
-fun taskThree1()
-{
-    print("Введите строку: ")
-    val str: String? = readLine()
-
-    if(str != null)
-    {
-        // Порядковый номер текущего символа в слове
-        var numOfSym = 0
-        // Последный введенный символ
-        var lastSymbol: Char? = null
-        // Порядковый номер последнего символа в самом коротком слове
-        var numOfShortest = 0
-        // Последний символ самого короткого слова
-        var symOfShortest: Char? = null
-
-        for(sym: Char in str)
-        {
-            if(sym != ' ')
-            {
-                numOfSym++
-                lastSymbol = sym
-                println("$numOfSym - $sym")
-            }
-            else
-            {
-                if (numOfShortest != 0)
-                {
-                    if(numOfShortest > numOfSym)
-                    {
-                        symOfShortest = lastSymbol
-                        numOfShortest = numOfSym
-                    }
-                }
-                else
-                {
-                    symOfShortest = lastSymbol
-                    numOfShortest = numOfSym
-                }
-                numOfSym = 0
-                println()
-            }
-        }
-        // Проверка последнего слова
-        if((symOfShortest == null || (numOfShortest > numOfSym && numOfSym != 0)))
-        {
-            symOfShortest = lastSymbol
-            numOfShortest = numOfSym
-        }
-
-        println("\nПоследний символ первого самого короткого слова в строке: $symOfShortest\n" +
-                "Порядковый номер символа: $numOfShortest")
-    }
-    else
-    {
-        println("Error: value is null")
-    }
-}
-
-
 // В строке, найдите последний символ в первом самом коротким слове с четным числом символов (в строке указываются
 // только слова разделенные одним или несколькими пробелами).
 // Вариант с проверкой количества символов в слове
-fun taskThree2()
+fun taskThree()
 {
-    print("Введите строку: ")
-    val str: String? = readLine()
+    print("Введите строку:\n> ")
+    var str: String? = readLine()
+
+    // Порядковый номер последнего слова в строке
+    var numOfSym = 0
+    // Последний введенный символ
+    var lastSymbol: Char? = null
+    // Порядковый символ последнего символа в самом коротком слове с четным числов символов
+    var numOfShortest = 0
+    // Последний символ самого короткого слова с четным числом символов
+    var symOfShortest: Char? = null
 
     if(str != null)
     {
-        // Порядковый номер текущего символа в слове
-        var numOfSym = 0
-        // Последный введенный символ
-        var lastSymbol: Char? = null
-        // Порядковый номер последнего символа в самом коротком слове
-        var numOfShortest = 0
-        // Последний символ самого короткого слова
-        var symOfShortest: Char? = null
-
+        // Добавление пробела в конце строки для избежания необходимости отдельной проверки последнего слова
+        str += ' '
+        // Проход всех символов строки
         for(sym: Char in str)
         {
+            // Проверка на пробел
             if(sym != ' ')
             {
                 numOfSym++
                 lastSymbol = sym
-                println("$numOfSym - $sym")
             }
             else
             {
-                if (numOfShortest != 0)
+                // Проверка на четность символов строки, а также проверка на то является ли пробел первым
+                if(numOfSym % 2 == 0 && lastSymbol != null)
                 {
-                    if(numOfShortest > numOfSym && numOfSym % 2 == 0)
-                    {
-                        symOfShortest = lastSymbol
-                        numOfShortest = numOfSym
-                    }
-                }
-                else
-                {
-                    if(numOfSym % 2 == 0)
+                    if(symOfShortest == null || (numOfShortest > numOfSym && symOfShortest != null))
                     {
                         symOfShortest = lastSymbol
                         numOfShortest = numOfSym
                     }
                 }
                 numOfSym = 0
-                println()
+                lastSymbol = null
             }
         }
-        // Проверка последнего слова
-        if((symOfShortest == null || (numOfShortest > numOfSym && numOfSym != 0)) && numOfSym % 2 == 0)
+        if(symOfShortest != null)
         {
-            symOfShortest = lastSymbol
-            numOfShortest = numOfSym
+            println("Последний символ самого короткого слова с четным числом символов: \"$symOfShortest\"\n" +
+                    "Длина самого короткого слова: $numOfShortest")
         }
-
-        println("\nПоследний символ первого самого короткого слова c четным количеством символов в строке: $symOfShortest\n" +
-                "Порядковый номер символа: $numOfShortest")
+        else
+        {
+            println("В строке отсутствуют слова с четным количеством символов.")
+        }
     }
     else
     {

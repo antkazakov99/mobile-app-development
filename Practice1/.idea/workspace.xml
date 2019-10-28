@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bd675d8-9d07-4d59-8ab1-56b1dd0ea97c" name="Default Changelist" comment="" />
+    <list default="true" id="0bd675d8-9d07-4d59-8ab1-56b1dd0ea97c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Practice1/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice1/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Practice1/TaskThreeKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice1/TaskThreeKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Practice1/TaskTwoKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice1/TaskTwoKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskThree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskThree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskTwo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskTwo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Practice1" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -15,9 +28,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1QSCL7AT5T4b4tan8Oz5oVJqxSH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Practice2/Practice2.iml" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -64,5 +82,18 @@
       <updated>1567754551235</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
