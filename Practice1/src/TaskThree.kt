@@ -34,7 +34,7 @@ fun taskThree()
             else
             {
                 // Проверка на четность символов строки, а также проверка на то является ли пробел первым
-                if(numOfSym % 2 == 0 && lastSymbol != null)
+                if((numOfSym % 2) == 0 && lastSymbol != null)
                 {
                     if(symOfShortest == null || (numOfShortest > numOfSym && symOfShortest != null))
                     {

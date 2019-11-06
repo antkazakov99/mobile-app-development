@@ -1,117 +1,56 @@
-import java.lang.NumberFormatException
+// Задание 1 Практическая работа 2
+// Изменить программу, сделанную в задании 1 практической работы 1, вынести основной алгоритм в отдельную функцию.
+// Описать функцию несколькими способами: 1. Обычная функция, 2. Функция с использованием хвостовой рекурсии
 
-//// Практическая работа №1 Задание 1
-//// Минимальная цифра, кратная трем
-//fun taskOne()
-//{
-//    // Минимальная цифра кратная трем
-//    var lowestNum : Int? = null
-//
-//    // Ввод целого неотрицательного числа
-//    print("Введите число: ")
-//    val num: String? = readLine()
-//
-//    //  Проверка на null
-//    if (num != null)
-//    {
-//        // Проверка является ли тип числом
-//        try
-//        {
-//            for(i in num)
-//            {
-//                val intNum = i.toString().toInt()
-//                if (intNum % 3 == 0)
-//                {
-//                    if(lowestNum == null)
-//                    {
-//                        lowestNum = intNum
-//                    }
-//                    else
-//                    {
-//                        if (lowestNum > intNum)
-//                        {
-//                            lowestNum = intNum
-//                        }
-//                    }
-//                }
-//            }
-//
-//            // Вывод результата
-//            if (lowestNum == null)
-//            {
-//                println("Отсутствуют числа кратные трем")
-//            }
-//            else
-//            {
-//                println("Наименьшее число кратное трем: $lowestNum")
-//            }
-//
-//        }
-//        catch (e: NumberFormatException)
-//        {
-//            println("Error: value is not a Number")
-//        }
-//    }
-//    else
-//    {
-//        println("Error: value is Null")
-//    }
-//}
+// Задание 1 Практическая работа 1 Вариант 14
+// Для данного неотрицательного числа, найти наименшую цифру кратную трем. Осуществить проверку корректности ввода.
 
 
-// Минимальная цифра, кратная трем
-// Основной алгоритм вынесен в отдельную функцию
-fun taskOne()
+// 1. Вариант решения с использованием обычной функции
+fun taskOnePartOne()
 {
-    print("Введите число: ")
+    print("Введите число:\n> ")
     val num: String? = readLine()
-    if(num != null)
+
+    if (num != null)
     {
         try
         {
-            val lowestNum: Int? = taskOneFunc(number = num.toInt())
-            if(lowestNum != null)
+            val result: Int? = taskOnePartOneFun(num.toInt())
+            if(result != null)
             {
-                println("Минимальное число кратное трем: $lowestNum")
+                println("Наименьшая цифра кратная трем: $result")
             }
             else
             {
-                println("Отсутствуют числа кратные трем")
+                println("Отсутствуют цифры кратные трем")
             }
         }
         catch (ex: NumberFormatException)
         {
-            println("Error: NumberFormatException")
+            println("Error: Значение не является числом")
         }
     }
     else
     {
-        println("Error: value is null")
+        println("Error: Значение равно null")
     }
 }
 
-
-// Основной алгоритм вынесенный в отдельную функцию
-fun taskOneFunc(number: Int): Int?
+// Функция, вовращающая наименьшую цифру, кратную трем в указанной последовательности цифр
+fun taskOnePartOneFun(num: Int): Int?
 {
-    val strNumber: String = number.toString()
-    // Переменная в которую будет записываться минимальное число кратное трем
     var lowestNum: Int? = null
-    for(i in strNumber)
+    var num1 = num
+    while(num1 > 0)
     {
-        val intNum = i.toString().toInt()
-        if (intNum % 3 == 0)
+        val number = num1 % 10
+        num1 /= 10
+        if (number % 3 == 0)
         {
-            if(lowestNum == null)
+            if (((lowestNum != null) && (number < lowestNum)) || (lowestNum == null))
             {
-                lowestNum = intNum
-            }
-            else
-            {
-                if (lowestNum > intNum)
-                {
-                    lowestNum = intNum
-                }
+                lowestNum = number
             }
         }
     }
@@ -119,39 +58,50 @@ fun taskOneFunc(number: Int): Int?
 }
 
 
-//// Вариант функции с использованием хвостовой рекурсии
-//fun taskOneTR(number: Int): Int?
-//{
-//    if(number / 10 == 0)
-//    {
-//        return if(number % 3 == 0) number % 3 else null
-//    }
-//    else
-//    {
-//        // Сравниние и возврат наименьшего
-//        val lowestNum = number % 3
-//        val lowestNum2 = taskOneTR(number / 10)
-//        if (lowestNum2 == null)
-//        {
-//            if(lowestNum == 0)
-//            {
-//                return lowestNum
-//            }
-//            else
-//            {
-//                return null
-//            }
-//        }
-//        else
-//        {
-//            if(lowestNum == 0)
-//            {
-//                return if(lowestNum > lowestNum2) lowestNum2 else lowestNum
-//            }
-//            else
-//            {
-//                return null
-//            }
-//        }
-//    }
-//}
+
+// 2. Вариант решения с использованием хвостовой рекурсии
+fun taskOnePartTwo()
+{
+    print("Введите число:\n> ")
+    val num: String? = readLine()
+
+    if (num != null)
+    {
+        try
+        {
+            val result: Int? = taskOnePartTwoFun(num.toInt())
+            if(result != null)
+            {
+                println("Наименьшая цифра кратная трем: $result")
+            }
+            else
+            {
+                println("Отсутствуют цифры кратные трем")
+            }
+        }
+        catch (ex: NumberFormatException)
+        {
+            println("Error: Значение не является числом")
+        }
+    }
+    else
+    {
+        println("Error: Значение равно null")
+    }
+}
+
+
+// Функция, вовращающая наименьшую цифру, кратную трем в указанной последовательности цифр
+tailrec fun taskOnePartTwoFun(num: Int, result: Int? = null): Int?
+{
+    var currentNum: Int? = if ((num % 10) % 3 == 0) num % 10 else null
+    if (result != null)
+    {
+        if (currentNum != null && result < currentNum || currentNum == null)
+        {
+            currentNum = result
+        }
+    }
+
+    return if(num / 10 != 0) taskOnePartTwoFun(num / 10, currentNum) else currentNum
+}
