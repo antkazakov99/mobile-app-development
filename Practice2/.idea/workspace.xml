@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34a45fe3-7248-4d8b-bafd-5f62326bf4ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Practice1/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskFour.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskThree.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskTwo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practice1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practice1/src/TaskThree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice1/src/TaskThree.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/META-INF/Practice2.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice2/META-INF/Practice2.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice2/MainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practice2/TaskOneKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practice2/TaskOneKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskOne.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskOne.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
