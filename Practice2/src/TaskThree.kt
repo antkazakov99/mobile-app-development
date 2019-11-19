@@ -1,5 +1,7 @@
 // Практическая работа 2 Задание 3
-//
+// Необходимо модифицировать функции сделанные в задании 1, таким образом чтобы условие, по которому происходит отбор,
+// можно было передать как аргумент (Один из аргументов функции должен быть лямбда со значением по умолчанию - условием,
+// что было указано в нашем варианте)
 
 fun taskThree()
 {
@@ -25,24 +27,41 @@ fun taskThree()
 
 // Функция, возвращающая цифру в соответствии с условием которое передается в функцию как аргумент,
 // реализовано как хвостовая рекурсия
-fun taskThreeFun
+// Реализация с изменением полного условия
+tailrec fun taskThreeFun1
     (
         num: Int,
-        // Условие отбора, по умолчанию кратное 3
-
-        selectCondition: (num1: Int?, num2: Int?) -> Int? =
+        selectCondition: (currNum: Int, resultNum: Int?) -> Int? =
             {
-                num1: Int?, num2: Int? ->
-                if (num2 != null && (num1 != null && num2 < num1 || num1 == null)) num2
-                else num1
+                currNum: Int, resultNum: Int? ->
+                if(resultNum != null && (currNum % 3 == 0 && resultNum < currNum || currNum % 3 != 0)) resultNum
+                else currNum
             },
         result: Int? = null
     ): Int?
 {
-    val currentNum = selectCondition(
-        if ((num % 10) % 3 == 0) num % 10 else null,
-        result
-    )
-    return if(num / 10 != 0) taskOnePartTwoFun(num / 10, currentNum)
-        else currentNum
+    val currentNum = selectCondition(num % 10, result)
+    return return if(num / 10 != 0) taskThreeFun1(num / 10, selectCondition, currentNum) else currentNum
+}
+
+// Функция, возвращающая цифру в соответствии с условием которое передается в функцию как аргумент,
+// реализовано как хвостовая рекурсия
+// Реализация с изменением только условия кратности
+tailrec fun taskThreeFun
+            (
+    num: Int,
+    selectCondition: (num: Int) -> Boolean = { num % 3 == 0},
+    result: Int? = null
+): Int?
+{
+    var currentNum: Int? =
+        if(selectCondition(num % 10)) num % 10 else null
+    if (result != null)
+    {
+        if (currentNum != null && result < currentNum || currentNum == null)
+        {
+            currentNum = result
+        }
+    }
+    return return if(num / 10 != 0) taskThreeFun(num / 10, selectCondition, currentNum) else currentNum
 }
