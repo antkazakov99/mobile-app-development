@@ -13,6 +13,7 @@ fun main()
             3 -> taskThree()
             4 -> taskFour()
             5 -> taskFive()
+            6 -> taskSix()
             null -> print("Неправильный номер задания.")
         }
     }
