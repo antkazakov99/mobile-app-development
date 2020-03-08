@@ -20,14 +20,14 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class MainActivityTest2 {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun mainActivityTest() {
+    fun mainActivityTest2() {
         val appCompatEditText = onView(
             allOf(
                 withId(R.id.NumText),
@@ -41,7 +41,22 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText.perform(replaceText("test"), closeSoftKeyboard())
+        appCompatEditText.perform(replaceText("101"), closeSoftKeyboard())
+
+        val appCompatEditText2 = onView(
+            allOf(
+                withId(R.id.NumText), withText("101"),
+                childAtPosition(
+                    childAtPosition(
+                        withId(android.R.id.content),
+                        0
+                    ),
+                    0
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText2.perform(click())
 
         val appCompatButton = onView(
             allOf(
@@ -60,7 +75,7 @@ class MainActivityTest {
 
         val textView = onView(
             allOf(
-                withId(R.id.result2), withText("Некорректное значение"),
+                withId(R.id.result2), withText("5.0"),
                 childAtPosition(
                     childAtPosition(
                         withId(android.R.id.content),
@@ -71,11 +86,11 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Некорректное значение")))
+        textView.check(matches(withText("5.0")))
 
         val textView2 = onView(
             allOf(
-                withId(R.id.result8), withText("Некорректное значение"),
+                withId(R.id.result8), withText("65.0"),
                 childAtPosition(
                     childAtPosition(
                         withId(android.R.id.content),
@@ -86,11 +101,11 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        textView2.check(matches(withText("Некорректное значение")))
+        textView2.check(matches(withText("65.0")))
 
         val textView3 = onView(
             allOf(
-                withId(R.id.result16), withText("Некорректное значение"),
+                withId(R.id.result16), withText("257.0"),
                 childAtPosition(
                     childAtPosition(
                         withId(android.R.id.content),
@@ -101,7 +116,7 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        textView3.check(matches(withText("Некорректное значение")))
+        textView3.check(matches(withText("257.0")))
     }
 
     private fun childAtPosition(
