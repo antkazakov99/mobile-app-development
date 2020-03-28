@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.practicalwork7">
-
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
+    package="com.example.practicalwork10">
 
     <application
         android:allowBackup="true"

@@ -1,10 +1,14 @@
 package com.example.practicalwork7
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
+import android.view.KeyEvent
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.pow
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,4 +67,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun sendButtonClick(view: View)
+    {
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Число: ${NumText.text}, Из 2-ой: ${result2.text}, Из 8-ой: ${result8.text}, Из 16-ой: ${result16.text}")
+        sendIntent.type = "text/plain"
+        startActivity(sendIntent)
+    }
 }
