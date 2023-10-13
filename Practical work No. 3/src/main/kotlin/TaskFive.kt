@@ -32,20 +32,15 @@ fun main(args: Array<String>) {
             it.isNotEmpty()
         }
         .toList()
-        .takeIf {
-            it.all { it.split(',').count() == 3 } && it.all {
-                it.split(',').last().split(' ').filter { it.isNotEmpty() }.all { it.toIntOrNull() != null }
-            }
-        }
-        ?.sortedBy { it.split(',')[1] }
-        ?.sortedBy { it.split(',').first }
-        ?.sortedBy { it.split(',').last().split(' ').filter { it.isNotEmpty() }.minBy { it.toInt() }.toInt() }
-        ?.fold(emptyList<String>()) { acc: List<String>, s: String ->
-            if (acc.count() < 3 || acc.last().split(',').last().split(' ').filter { it.isNotEmpty() }
-                    .minBy { it.toInt() }.toInt() == s.split(',').last().split(' ').filter { it.isNotEmpty() }
-                    .minBy { it.toInt() }.toInt())
-                acc + s else acc
-        }?.map { it.split(',').toString() })
+        .map { it.split(',') }
+        .map { Pair(it, it.last().split(' ').filter { it.isNotEmpty() }) }
+        .takeIf { it.all { it.first.count() == 3 } && it.all { it.second.all { it.toIntOrNull() != null } } }
+        ?.map { Pair(it.first, it.second.minBy { it.toInt() }.toInt()) }
+        ?.sortedBy { it.first[1] }
+        ?.sortedBy { it.first.first }
+        ?.sortedBy { it.second }
+        ?.fold(emptyList()) { acc: List<Pair<List<String>, Int>>, s: Pair<List<String>, Int> ->
+            if (acc.count() < 3 || acc.last().second== s.second) acc + listOf(s) else acc }?.map { it.first.toString() })
 }
 
 fun generateString(): String? {
