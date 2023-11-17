@@ -13,10 +13,4 @@ class Utils {
         BroadcastType.BASIC to "Базовый",
         BroadcastType.HD to "HD"
     )
-
-    val soringDirectionTypes = mapOf(
-        SortDirection.ASC to "По возрастанию",
-        SortDirection.DESC to "По убыванию",
-        SortDirection.DISABLED to "По умолчанию"
-    )
 }

@@ -1,6 +1,7 @@
 package view
 
 import controller.Utils
+import model.entites.BroadcastType
 import model.entites.Tariff
 
 class TariffView {
@@ -8,9 +9,9 @@ class TariffView {
         menuItems.forEachIndexed { index, s -> println("${index + 1}. $s") }
     }
 
-    fun printTariffs(tariffs: List<Tariff>) {
+    fun printTariffs(tariffs: List<Tariff>, broadcastTypes: Map<BroadcastType, String> = Utils().broadcastTypes, booleanTypes: Map<Boolean, String> = Utils().boolValues) {
         tariffs.forEach {
-            println("ID: ${it.id} / Название: ${it.name} / Тип вещания: ${Utils().broadcastTypes[it.broadcastType]} / Публичный: ${Utils().boolValues[it.isPublic]}")
+            println("ID: ${it.id} / Название: ${it.name} / Тип вещания: ${broadcastTypes[it.broadcastType]} / Публичный: ${booleanTypes[it.isPublic]}")
         }
     }
 
