@@ -2,6 +2,7 @@ package controller
 
 import model.entites.BroadcastType
 
+// todo Избавиться от utils
 class Utils {
     val boolValues = mapOf(
         true to "Да",

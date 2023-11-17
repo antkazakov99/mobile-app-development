@@ -10,7 +10,7 @@ fun taskOne()
     }
 }
 
-fun<T> min(fun1: (T) -> Int?, fun2:(T) -> Int?): ((T)->Int?)?
+fun<T> min(fun1: (T) -> Int?, fun2:(T) -> Int?): ((T)->Int?)
 {
     return { T ->
         if (fun1(T) == null || fun2(T) == null)

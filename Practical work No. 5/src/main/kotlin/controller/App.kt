@@ -1,6 +1,9 @@
 package controller
 
-import model.entites.BroadcastType
+import controller.inputs.BooleanSelect
+import controller.inputs.Input
+import controller.inputs.Menu
+import controller.inputs.Select
 import model.entites.Tariff
 import model.entites.TariffModel
 import view.TariffView
@@ -17,35 +20,6 @@ class App {
         mainMenu()
     }
 
-    private fun select(menuItems: List<String>): Int {
-        while (true) {
-            tariffView.printSelect(menuItems)
-            val result: Int? = input().toIntOrNull()
-            if (result != null && result > 0 && result <= menuItems.count()) {
-                return result - 1
-            } else {
-                tariffView.printInvalidInput()
-            }
-        }
-    }
-
-    private fun booleanSelect(): Boolean {
-        val menuItems = utils.boolValues.toList()
-        val result = select(menuItems.map { it.second })
-        return menuItems[result].first
-    }
-
-    private fun input(): String {
-        while (true) {
-            val name = readlnOrNull()
-            if (name != null) {
-                return name
-            } else {
-                tariffView.printFailedInput()
-            }
-        }
-    }
-
     private fun mainMenu() {
         val mainMenuItems = listOf(
             "Добавить тариф" to { addTariff() },
@@ -55,27 +29,34 @@ class App {
             "Выход" to null
         )
 
-        while (true) {
-            val result = select(mainMenuItems.map { it.first })
-            if (mainMenuItems[result].second == null) {
-                return
-            } else {
-                mainMenuItems[result].second!!.invoke()
-            }
-        }
+        Menu(
+            mainMenuItems,
+            { menuItems: List<String> -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printFailedInput() }
+        ).run()
     }
 
     private fun addTariff() {
         tariffView.printInputTariffName()
-        val name = input()
+        val name = Input { tariffView.printInvalidInput() }.run()
 
         tariffView.printSelectTariffBroadcastType()
         val broadcastTypes = utils.broadcastTypes.toList()
-        val selectedType = select(broadcastTypes.map { it.second })
+        val selectedType = Select (
+            broadcastTypes.map { it.second },
+            { menuItems -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printFailedInput() }
+        ).run()
         val broadcastType = broadcastTypes[selectedType].first
 
         tariffView.printSelectTariffIsPublic()
-        val isPublic = booleanSelect()
+        val isPublic = BooleanSelect(
+            { menuItems -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printInvalidInput()}
+        ).run()
 
         val tariff = Tariff(
             null,
@@ -97,7 +78,7 @@ class App {
         tariffView.printTariffs(tariffs)
         tariffView.inputDeletedTariffId()
         while (true) {
-            val id = input().toIntOrNull()
+            val id = Input { tariffView.printInvalidInput() }.run().toIntOrNull()
             if (tariffs.any { it.id == id }) {
                 tariffModel.deleteTariff(id!!)
                 return
@@ -119,7 +100,7 @@ class App {
         tariffView.inputEditedTariffId()
         var id: Int? = null
         while (id == null) {
-            id = input().toIntOrNull()
+            id = Input { tariffView.printInvalidInput() }.run().toIntOrNull()
             if (!tariffs.any { it.id == id }) {
                 id = null
                 tariffView.printInvalidInput()
@@ -130,17 +111,26 @@ class App {
 
         tariffView.printPreviousValue(tariff.name)
         tariffView.printInputTariffName()
-        tariff.name = input()
+        tariff.name = Input { tariffView.printInvalidInput() }.run()
 
         tariffView.printPreviousValue(utils.broadcastTypes[tariff.broadcastType]!!)
         tariffView.printSelectTariffBroadcastType()
         val broadcastTypes = utils.broadcastTypes.toList()
-        val selectedType = select(broadcastTypes.map { it.second })
+        val selectedType = Select(
+            broadcastTypes.map { it.second },
+            { menuItems -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printFailedInput() }
+        ).run()
         tariff.broadcastType = broadcastTypes[selectedType].first
 
         tariffView.printPreviousValue(utils.boolValues[tariff.isPublic]!!)
         tariffView.printSelectTariffIsPublic()
-        tariff.isPublic = booleanSelect()
+        tariff.isPublic = BooleanSelect(
+            { menuItems -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printInvalidInput()}
+        ).run()
     }
 
     private fun showTariffsMenu() {
@@ -151,25 +141,33 @@ class App {
             "Назад" to null
         )
 
-        while (true) {
-            val result = select(showMenuItems.map { it.first })
-            if (showMenuItems[result].second == null) {
-                return
-            } else {
-                showMenuItems[result].second!!.invoke()
-            }
-        }
+        Menu(
+            showMenuItems,
+            { menuItems -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printFailedInput() }
+        ).run()
     }
 
     private fun filterTariffs() {
         tariffView.printInputSearchString()
-        filter = input()
+        filter = Input { tariffView.printInvalidInput() }.run()
     }
 
     private fun sortTariffs() {
+        val sortingTypes = listOf(
+            SortDirection.ASC to "По возрастанию",
+            SortDirection.DESC to "По убыванию",
+            SortDirection.DISABLED to "По умолчанию"
+        )
+
         tariffView.printChooseSortingType()
-        val sortingTypes = utils.soringDirectionTypes.toList()
-        val selectedType = select(sortingTypes.map { it.second })
+        val selectedType = Select(
+            sortingTypes.map { it.second },
+            { menuItems -> tariffView.printSelect(menuItems) },
+            { tariffView.printInvalidInput() },
+            Input { tariffView.printFailedInput() }
+        ).run()
         sorting = sortingTypes[selectedType].first
     }
 
