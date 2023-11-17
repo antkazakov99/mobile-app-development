@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun taskThree() {
 
     print("Введите строку:\n> ")
     var str: String? = readlnOrNull()
