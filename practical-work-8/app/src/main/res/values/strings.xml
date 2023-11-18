@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">practical-work-8</string>
+    <string name="convert">Convert</string>
+    <string name="invalidInput">Invalid input</string>
+</resources>
