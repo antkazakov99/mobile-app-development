@@ -1,9 +1,0 @@
-<resources>
-    <string-array name="sortTypes">
-        <item>By id</item>
-        <item>By name</item>
-        <item>By HD broadcast</item>
-        <item>By Public access</item>
-    </string-array>
-    <string name="app_name">Practical Work 9</string>
-</resources>
