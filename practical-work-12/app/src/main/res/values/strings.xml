@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">practical-work-12</string>
+    <string name="add_tariff">Add tariff</string>
+    <string name="tariff_name">Name</string>
+    <string name="broadcast_type">Broadcast type</string>
+    <string name="is_public_tariff">Public</string>
+    <string name="broadcast_type_common">Common</string>
+    <string name="broadcast_type_hd">HD</string>
+    <string name="is_public_true">Yes</string>
+    <string name="is_public_false">No</string>
+    <string name="save_tariff">Save</string>
+    <string name="search_tariff">Search</string>
+    <string name="edit_tariff">Edit</string>
+    <string name="delete_tariff">Delete</string>
+    <string name="sorting">Sorting</string>
+</resources>
